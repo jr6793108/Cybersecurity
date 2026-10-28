@@ -8,7 +8,7 @@ IAM Lab Network Architecture
 
 This diagram illustrates my VMware ESXi-based Identity and Access Management lab, including OPNsense firewall segmentation, Active Directory infrastructure, and isolated internal networking.
 
-![IAM Lab Network Architecture](IAM-Lab/Architecture/IAM-Lab-Network.png)
+![IAM Lab Network Architecture](IAM-Lab/Architecture/IAM Lab Network Architecture.png)
 
 The lab supports hands-on exercises in identity lifecycle management, RBAC, privileged access, and security auditing.
 
