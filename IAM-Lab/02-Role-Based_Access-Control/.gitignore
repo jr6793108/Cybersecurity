@@ -1,0 +1,9 @@
+# Never commit private lab backups, passwords, or keys
+*.pfx
+*.p12
+*.key
+*.pem
+*config-backup*.xml
+*opnsense*.xml
+*.secrets
+.env
