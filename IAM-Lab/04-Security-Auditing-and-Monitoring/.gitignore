@@ -1,0 +1,7 @@
+# Avoid committing raw security audit exports and identity data
+Reports/
+**/IAM-Audit-Events.csv
+**/IAM-Audit-Findings.csv
+**/IAM-Audit-Investigation.csv
+**/IAM-Audit-Dashboard.html
+*.evtx
