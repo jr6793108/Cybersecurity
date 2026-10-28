@@ -1,0 +1,11 @@
+*.key
+*.p12
+*.pfx
+*.pem
+*.ovpn
+*.xml
+*backup*
+*secret*
+*.log
+.env
+config/wireguard-client.conf
