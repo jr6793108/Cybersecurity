@@ -1,0 +1,6 @@
+Metric,Count,Notes
+Groups inventoried,4,"Finance, HR, IT, Helpdesk"
+Pre-remediation membership records,9,Snapshot includes controlled test
+Controlled test decisions,2,1 Approve / 1 Revoke
+Other records pending review,7,Not yet certified
+Excess memberships removed,1,Finance removed from dedicated test user
