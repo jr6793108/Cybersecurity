@@ -1,5 +1,7 @@
 Cybersecurity Portfolio
+
 Welcome to my hands-on cybersecurity engineering portfolio.
+
 I am an experienced network and telecommunications engineering professional developing practical expertise in Identity and Access Management, Active Directory security, privileged access, and cybersecurity operations.
 
 IAM Lab Network Architecture
