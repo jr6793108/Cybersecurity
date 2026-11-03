@@ -1,0 +1,15 @@
+# Keep private operational data out of public source control
+.env
+*.key
+*.pem
+*.pfx
+*.p12
+*.secret
+*password*
+*credential*
+Evidence/raw/
+Evidence/private/
+*.evtx
+*.pcap
+.DS_Store
+Thumbs.db

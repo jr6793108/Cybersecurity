@@ -1,0 +1,8 @@
+flowchart TD
+    A["Authorized authentication failure"] --> B["Windows Security Event 4625"]
+    B --> C["Wazuh rule 60122 alert"]
+    C --> D["Correlate event and record 46309"]
+    D --> E["Assess scope and severity"]
+    E --> F["Verify test-account cleanup"]
+    F --> G["Preserve evidence and compare SHA-256"]
+    G --> H["Document incident and close as benign test"]

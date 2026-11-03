@@ -1,0 +1,10 @@
+flowchart LR
+    W["IAM-MGMT01\nWindows 11 Pro\n192.168.150.30\nWazuh Agent 001"]
+    M["soc-ubuntu01\nUbuntu 24.04.3\n192.168.150.50\nWazuh Manager"]
+    I["Wazuh Indexer"]
+    D["Wazuh Dashboard"]
+    B["Analyst Browser"]
+    W -->|"Agent telemetry · TCP 1514"| M
+    M --> I
+    I --> D
+    B -->|"HTTPS · TCP 443"| D
