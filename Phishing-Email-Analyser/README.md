@@ -3,7 +3,7 @@
 **Release:** v1.1 — Production (educational use)  
 **Live site:** https://jr6793108.github.io/Cybersecurity/Phishing-Email-Analyser/  
 **Release date:** 2026-11-07  
-**Verification:** [Manual functional and privacy test report](documentation/TEST-REPORT.md) · [Browser regression tests](tests/) (execution pending)
+**Verification:** [Manual functional and privacy test report](documentation/TEST-REPORT.md) · [Browser regression tests](tests/) (13/13 passed on 2026-11-07)
 
 > This is a rule-based educational screening tool, not a guarantee that any email is safe or malicious. Avoid pasting confidential or regulated information into websites you do not trust.
 
@@ -39,7 +39,7 @@ The app never calls `fetch`, XHR, WebSocket, or external APIs. It does not use c
 
 ## Run automated regression tests
 
-Open [tests/index.html](tests/index.html) in a browser, or visit the [hosted test page](https://jr6793108.github.io/Cybersecurity/Phishing-Email-Analyser/tests/). The test runner displays individual PASS/FAIL results and a summary. No build step or server is needed. The tests use synthetic data and execute entirely in the browser. **These new automated tests have not yet been independently executed and verified.**
+Open [tests/index.html](tests/index.html) in a browser, or visit the [hosted test page](https://jr6793108.github.io/Cybersecurity/Phishing-Email-Analyser/tests/). The test runner displays individual PASS/FAIL results and a summary. No build step or server is needed. The tests use synthetic data and execute entirely in the browser. **The hosted browser test runner displayed 13/13 passing tests on 2026-11-07.**
 
 ## Release checklist
 
@@ -49,8 +49,8 @@ Open [tests/index.html](tests/index.html) in a browser, or visit the [hosted tes
 - [x] Manual DevTools Network and offline checks previously passed
 - [x] Visible warning and detailed disclaimer
 - [x] Automated test suite committed
-- [ ] Confirm the automated suite passes in a browser
-- [ ] Repeat a privacy Network-tab check after v1.1 deployment
+- [x] Confirm the automated suite passes in a browser (13/13)
+- [x] Repeat a privacy Network-tab and offline check after v1.1 deployment (no outbound email-content requests observed)
 - [ ] Verify mobile layout and keyboard navigation
 
 ### Responsible use
