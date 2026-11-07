@@ -12,7 +12,7 @@ const rules = [
  ['Unexpected invoice or overdue charge', /\b(?:unexpected invoice|invoice attached|overdue invoice|past due|unpaid invoice|outstanding balance|payment overdue)\b/i, 12, 'Unexpected billing messages may be used to provoke clicks or payments.'],
  ['Credential-harvesting language', /\b(?:verify your (?:account|identity|login)|sign in to (?:avoid|restore|confirm|verify)|validate your account|re.?authenticate|confirm your credentials|login to unlock)\b/i, 19, 'Requests to verify identity through a link may lead to credential-harvesting pages.'],
  ['Macro enablement request', /\b(?:enable (?:content|editing|macros?)|turn on macros?|allow macros?)\b/i, 25, 'Office macros can execute code and should not be enabled on untrusted documents.'],
- ['Executable or script attachment', /\b[\w.-]+\.(?:exe|scr|bat|cmd|ps1|vbs|js|jse|wsf|hta|msi|jar|com|pif|lnk)(?=\b|[\s"'<>])/i, 28, 'Executable or script files can run harmful commands when opened.'],
+ ['Executable or script attachment', /\b[\w.-]+\.(?:exe|scr|bat|cmd|ps1|vbs|js|jse|wsf|hta|msi|jar|pif|lnk)(?=\b|[\s"'<>])/i, 28, 'Executable or script files can run harmful commands when opened.'],
  ['Unusual attachment filename', /\b[\w.-]+\.(?:zip|rar|7z|iso|img|docm|xlsm|pptm|html|htm)(?=\b|[\s"'<>])/i, 12, 'Archives, macro-enabled documents and HTML attachments deserve additional scrutiny.'],
 ];
 const shorteners = new Set(['bit.ly','tinyurl.com','t.co','goo.gl','ow.ly','is.gd','buff.ly','cutt.ly','rebrand.ly','tiny.cc','rb.gy']);
