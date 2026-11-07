@@ -1,5 +1,13 @@
 # Phishing Email Analyser
 
+**Release:** v1.0 — Production (educational use)  
+**Live site:** https://jr6793108.github.io/Cybersecurity/Phishing-Email-Analyser/  
+**Release date:** 2026-11-07  
+**Verification:** [Functional and privacy test report](documentation/TEST-REPORT.md)
+
+> This is a rule-based educational screening tool, not a guarantee that any email is safe or malicious. Avoid pasting confidential or regulated information into websites you do not trust.
+
+
 An educational, fully static phishing warning-sign analyser. No backend, dependencies, accounts, APIs, analytics, tracking, or persistent storage.
 
 ## Run locally
