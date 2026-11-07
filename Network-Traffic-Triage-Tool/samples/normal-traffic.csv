@@ -1,0 +1,13 @@
+No.,Time,Source,Destination,Protocol,Length,Info
+1,0.012,192.168.10.10,192.168.10.1,DNS,88,"Routine authorised lab traffic"
+2,0.024,192.168.10.11,192.168.10.1,TCP,74,"Routine authorised lab traffic"
+3,0.036,192.168.10.12,192.168.10.1,TCP,74,"Routine authorised lab traffic"
+4,0.048,192.168.10.10,192.168.10.1,DNS,88,"Routine authorised lab traffic"
+5,0.060,192.168.10.11,192.168.10.1,TCP,74,"Routine authorised lab traffic"
+6,0.072,192.168.10.12,192.168.10.1,TCP,74,"Routine authorised lab traffic"
+7,0.084,192.168.10.10,192.168.10.1,DNS,88,"Routine authorised lab traffic"
+8,0.096,192.168.10.11,192.168.10.1,TCP,74,"Routine authorised lab traffic"
+9,0.108,192.168.10.12,192.168.10.1,TCP,74,"Routine authorised lab traffic"
+10,0.120,192.168.10.10,192.168.10.1,DNS,88,"Routine authorised lab traffic"
+11,0.132,192.168.10.11,192.168.10.1,TCP,74,"Routine authorised lab traffic"
+12,0.144,192.168.10.12,192.168.10.1,TCP,74,"Routine authorised lab traffic"
