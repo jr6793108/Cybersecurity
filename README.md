@@ -10,7 +10,7 @@ I am an experienced network and telecommunications engineering professional deve
 | --- | --- | --- |
 | [IAM Lab](IAM-Lab/) | Active Directory, RBAC, delegated administration, Group Policy, identity security assessment, and security auditing | Lab projects documented |
 | [SOC Lab](SOC-Lab/) | Wazuh monitoring, Windows security events, file integrity monitoring, alert investigation, and incident response | Lab exercises documented |
-| [Phishing Email Analyser](Phishing-Email-Analyser/) | Privacy-first, browser-based phishing detection with explainable risk scoring and security recommendations | Production v1.0 — educational use |
+| [Phishing Email Analyser](Phishing-Email-Analyser/) | Privacy-first, browser-based phishing detection with explainable risk scoring and security recommendations | Production v1.1 — educational use |
 
 ## Phishing Email Analyser
 
