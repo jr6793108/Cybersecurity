@@ -45,3 +45,19 @@ The initial legitimate-email test produced 28/100 because the executable-attachm
 5. For P-02, select **Offline** in the Network throttling dropdown, do not reload, and analyse the demonstration sample.
 
 Evidence source: user-observed screenshots from manual testing on 2026-11-07. Screenshots are not included in this repository document.
+
+## Production v1.1 final browser verification — 2026-11-07
+
+Evidence: two user-provided Chrome DevTools screenshots of the live production application. The screenshots are retained in the conversation, not committed to the repository.
+
+| ID | Check | Observation | Result |
+| --- | --- | --- | --- |
+| V11-01 | Automated browser regression tests | 13 / 13 tests passed in the hosted test runner | Pass |
+| V11-02 | Live production UI | v1.1 label and prominent disclaimer visible in screenshot | Pass |
+| V11-03 | Online analysis with DevTools Network open | Synthetic demonstration yielded 100/100, High Risk, with 12 warning signs; Network log displayed no requests during the tested interaction | Pass for observed workflow |
+| V11-04 | Offline analysis without reloading | Synthetic demonstration still yielded 100/100, High Risk, with 12 warning signs | Pass for already-loaded app |
+| V11-05 | Offline Network panel | One `data:image/svg+xml` resource entry appeared, status 200 and 0 B transferred; this is an embedded data URL, not evidence of an outbound HTTP request | No observed email-content upload |
+
+**Privacy conclusion:** The tested v1.1 workflow operated in the browser without observed outbound email-content transmission and continued functioning while DevTools was set to Offline. This is a scoped manual verification, **not** a comprehensive privacy/security audit or proof of all possible browser, extension, or hosting behavior.
+
+**Remaining optional checks:** mobile responsiveness, keyboard navigation, broader detection coverage, and verification in a clean browser profile without extensions. These are not marked complete by the screenshots.
