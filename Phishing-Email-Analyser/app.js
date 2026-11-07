@@ -51,6 +51,7 @@ function analyse(raw){
 }
 function render(result){$('results').hidden=false;$('score').textContent=`${result.score}/100`;$('classification').textContent=result.classification;
  const high=result.score>=60;const medium=result.score>=25;
+ $('riskMeter').setAttribute('aria-valuenow',String(result.score));$('findingCount').textContent=`(${result.findings.length})`;
  $('classification').style.color=high?'#ff8585':medium?'#ffca76':'#7ce0b0';$('meterFill').style.background=high?'#f47171':medium?'#f0b45d':'#45c78e';$('meterFill').style.width=`${result.score}%`;
  $('overview').textContent=high?'Several strong phishing indicators were detected. Treat this message as potentially malicious.':medium?'Some warning signs were found. Verify the message before taking any action.':'Few or no known warning signs were detected. This does not prove the email is safe.';
  const root=$('findings');root.replaceChildren();
