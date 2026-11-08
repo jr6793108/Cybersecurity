@@ -35,13 +35,13 @@ Phase 3 adds explainable, rule-based alerts for high traffic volume, ICMP and DN
 
 **Educational-use note:** Alerts are heuristic observations, not proof of malicious activity; an absence of alerts does not establish that traffic is safe.
 
-## IAM Lab Network Architecture
+## IAM & SOC Lab Network Architecture
 
-This diagram illustrates my VMware ESXi-based Identity and Access Management lab, including OPNsense firewall segmentation, Active Directory infrastructure, and isolated internal networking.
+This architecture illustrates my VMware ESXi-based cybersecurity lab environment, integrating Identity and Access Management (IAM) infrastructure with Security Operations Center (SOC) monitoring. The environment includes OPNsense firewall segmentation, Active Directory, isolated internal networking, a Wazuh SOC server, and Windows endpoint security monitoring.
 
-![IAM Lab Network Architecture](IAM-Lab/Architecture/Cybersecurity-Lab-Network-Architecture.png)
+![IAM & SOC Lab Network Architecture](IAM-Lab/Architecture/Cybersecurity-Lab-Network-Architecture.png)
 
-The IAM lab supports hands-on exercises in identity lifecycle management, RBAC, privileged access, and security auditing.
+The [IAM Lab](IAM-Lab/) supports hands-on exercises in identity lifecycle management, RBAC, delegated administration, Group Policy, and security auditing. The [SOC Lab](SOC-Lab/) extends the environment with Windows security event monitoring, file integrity monitoring, security alert investigation, and incident response exercises.
 
 ## Technical skills
 
