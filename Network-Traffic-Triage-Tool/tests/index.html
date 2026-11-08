@@ -1,2 +1,42 @@
+
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'"><title>Network Traffic Triage Tool — Phase 3</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script></head><body><main class="wrap"><header><p class="eyebrow">CYBERSECURITY LAB · PHASE 3</p><h1>Network Traffic Triage Tool</h1><p class="subtitle">Learn to examine Wireshark packet lists, one safe step at a time.</p><div class="privacy">🔒 Your packet capture data is analysed locally in your browser and is not uploaded anywhere.</div></header><section class="panel" aria-labelledby="upload-title"><div class="section-head"><h2 id="upload-title">Upload Wireshark CSV</h2><span class="tag">CSV only</span></div><div id="dropzone" class="dropzone"><p><strong>Drop a CSV file here</strong> or select one from your computer.</p><label for="csvFile" class="button">Choose CSV file</label><input id="csvFile" type="file" accept=".csv,text/csv" aria-describedby="fileHelp"><p id="fileHelp" class="hint">Maximum file size: 10 MB. No file leaves your browser.</p></div><div class="demo"><span>Try a fictional sample:</span><button type="button" data-sample="normal">Load Normal Sample</button><button type="button" data-sample="high">Load High-Volume Sample</button><button type="button" data-sample="mixed">Load Mixed SOC Lab</button></div><p id="status" role="status" aria-live="polite">No CSV loaded yet.</p></section><section id="results" class="panel" hidden aria-labelledby="results-title"><div class="section-head"><h2 id="results-title">Import summary</h2><span id="demoTag" class="tag" hidden>Demo Data</span></div><div class="stats"><div><span>Filename</span><strong id="filename"></strong></div><div><span>Packets loaded</span><strong id="count"></strong></div><div><span>Parse status</span><strong id="parseStatus"></strong></div></div><h3>Recognised columns</h3><p id="columns" class="details"></p><h3>Missing fields / notes</h3><ul id="notes"></ul><h3>Packet preview (first 10 rows)</h3><div class="table-scroll"><table><thead><tr><th>Time</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Length</th><th>Info</th></tr></thead><tbody id="preview"></tbody></table></div><p class="hint">CSV preview is informational; it does not verify complete connections.</p></section><section id="dashboard" class="panel" hidden aria-labelledby="dashboard-title"><div class="section-head"><h2 id="dashboard-title">Network traffic dashboard</h2><span class="tag">Descriptive statistics · No threat verdicts</span></div><div class="stats stat-grid"><div><span>Total packets</span><strong id="statPackets"></strong></div><div><span>Unique source hosts</span><strong id="statSources"></strong></div><div><span>Unique destination hosts</span><strong id="statDestinations"></strong></div><div><span>All unique hosts</span><strong id="statHosts"></strong></div><div><span>Captured packet lengths</span><strong id="statBytes"></strong></div></div><div class="dash-columns"><div><h3>Protocol distribution</h3><div id="protocolBars" class="bar-list"></div></div><div><h3>Top source hosts</h3><div id="topSources" class="bar-list"></div></div><div><h3>Top destinations</h3><div id="topDestinations" class="bar-list"></div></div></div><p class="hint">Counts reflect the imported CSV rows, not complete network sessions. Host names and IP addresses are treated as literal labels. Protocol percentages use all imported packets as the denominator. Source and destination rankings count packets in each direction separately. Heuristic alerts are shown below; none prove malicious activity.</p></section><section id="alertsPanel" class="panel" hidden aria-labelledby="alertsTitle"><div class="section-head"><h2 id="alertsTitle">Security triage alerts</h2><span id="alertCount" class="tag"></span></div><p class="hint">Explainable, rule-based heuristics. Thresholds are packet counts or unique labels across the entire imported CSV, not time-window rates. No alert establishes malicious intent.</p><div class="stats"><div><span>High</span><strong id="countHigh">0</strong></div><div><span>Medium</span><strong id="countMedium">0</strong></div><div><span>Low</span><strong id="countLow">0</strong></div></div><p id="noAlerts" hidden>No configured threshold was met. This does not establish that the traffic is safe.</p><div id="alerts" class="alert-list"></div></section><aside class="disclaimer"><h2>Educational use and privacy</h2><p>Only analyse traffic from systems and networks you own or are authorised to monitor. Unusual network activity is not proof of malicious behaviour. CSV records may contain sensitive network information; avoid sharing them unnecessarily.</p></aside><footer><a href="tests/index.html">Run Phase 3 parser tests</a><span>Static · Offline-capable after loading · No accounts</span></footer></main></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+
+  <title>Phase 3 Parser Tests — Network Traffic Triage Tool</title>
+
+  <link rel="stylesheet" href="../styles.css">
+  <script src="test.js" defer></script>
+</head>
+
+<body>
+  <main class="wrap">
+    <header>
+      <p class="eyebrow">CYBERSECURITY LAB · PHASE 3</p>
+      <h1>Network Traffic Triage Tool — Parser Tests</h1>
+      <p class="subtitle">
+        Automated verification of CSV parsing, dashboard calculations,
+        and explainable security alerts.
+      </p>
+    </header>
+
+    <section class="panel">
+      <h2>Test Results</h2>
+      <p id="status" role="status" aria-live="polite">
+        Running tests...
+      </p>
+      <div id="results"></div>
+    </section>
+
+    <footer>
+      <a href="../index.html">Return to Network Traffic Triage Tool</a>
+      <span>Local browser-based tests</span>
+    </footer>
+  </main>
+</body>
+</html>
