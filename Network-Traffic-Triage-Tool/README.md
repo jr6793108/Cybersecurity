@@ -1,80 +1,133 @@
-# Network Traffic Triage Tool — Phase 1
+# 🛡️ Network Traffic Triage Tool
 
-Educational, privacy-first, static browser application for importing and previewing Wireshark CSV packet lists.
+**Cybersecurity Portfolio Project | Phase 3 Complete**
 
-## Run locally (Windows)
+[![Project Status](https://img.shields.io/badge/Status-Phase%203%20Complete-2ea44f)](https://github.com/jr6793108/Cybersecurity/tree/main/Network-Traffic-Triage-Tool) [![Tests](https://img.shields.io/badge/Regression%20Tests-32%2F32%20Passed-2ea44f)](https://jr6793108.github.io/Cybersecurity/Network-Traffic-Triage-Tool/tests/index.html) [![Deployment](https://img.shields.io/badge/Deployment-GitHub%20Pages-blue)](https://jr6793108.github.io/Cybersecurity/Network-Traffic-Triage-Tool/)
 
-1. Extract the ZIP to a folder.
-2. Double-click `index.html` to open it in Chrome or Edge.
-3. Click **Load Normal Sample**, **Load High-Volume Sample**, or **Load Mixed SOC Lab**; or select a Wireshark `.csv` file.
-4. Review import status, recognised columns, missing fields, and the first 10 packet records.
-5. Open `tests/index.html` to run browser parser regression tests.
+A **browser-based, educational network traffic triage application** that parses Wireshark-exported CSV packet lists, summarizes observed traffic, and generates **explainable, rule-based security alerts**. Designed for hands-on Security Operations Center (SOC) analysis practice, it processes packet data locally in the browser without uploading it to a server.
 
-No installation, server, accounts, API keys, or internet connection is required. The sample buttons use generated, fictional CSV content and do not fetch files.
+### 🔗 Quick links
 
-## Export from Wireshark
+- **[🚀 Launch the live application](https://jr6793108.github.io/Cybersecurity/Network-Traffic-Triage-Tool/)**
+- **[✅ Run the 32 automated tests](https://jr6793108.github.io/Cybersecurity/Network-Traffic-Triage-Tool/tests/index.html)**
+- **[📁 View project source](https://github.com/jr6793108/Cybersecurity/tree/main/Network-Traffic-Triage-Tool)**
 
-Capture only on systems or networks you own or are authorised to monitor. Stop capture, choose **File → Export Packet Dissections → As CSV**, save the file, and open it in this tool.
+---
 
-## Supported columns
+## 📌 Project Overview
 
-Required for a fully valid import: source address, destination address, protocol. Optional: time, length, info. Common alternative labels include `src`, `ip.src`, `Source IP`, `dst`, `ip.dst`, `Destination IP`, `frame.len`, and `Information`. Missing required columns are reported rather than causing a crash.
+This project demonstrates a practical network security analysis workflow: **import → validate → inspect → summarize → triage**. The application helps an analyst recognize patterns that warrant investigation while making clear that **heuristic alerts are not proof of compromise**.
 
-CSV parsing supports quoted fields, commas, doubled quotes, CRLF/LF line endings, UTF-8 BOM, and embedded line breaks. Rows with inconsistent column counts fail safely. The limit is 10 MB / 100,000 packet rows / 100 columns.
+| Phase | Capability | Status |
+|:---:|---|:---:|
+| **1** | Secure Wireshark CSV parsing, validation, packet preview, and sample datasets | ✅ Complete |
+| **2** | Traffic statistics dashboard, protocol distribution, and top hosts | ✅ Complete |
+| **3** | Explainable security triage rules and automated regression tests | ✅ Complete |
 
-## Privacy and security
+## ✨ Features
 
-All processing uses browser JavaScript and local File objects. There is no fetch, XMLHttpRequest, network API, analytics, telemetry, cookies, storage, or backend. A restrictive Content Security Policy blocks external connections. CSV values are displayed with `textContent`, not injected as HTML. Hosting providers may log ordinary requests for static site files, but the application does not transmit imported packet data.
+### Phase 1 — CSV Import and Validation
 
-## Sample datasets
+- Import Wireshark packet-list CSV exports, with a **10 MB maximum file size**.
+- Parse quoted fields, embedded commas, escaped quotes, multiline values, and UTF-8 byte-order marks (BOMs).
+- Recognize common source and destination column aliases.
+- Identify missing required fields and safely reject malformed records.
+- Display an import summary, recognized columns, parsing notes, and a **preview of the first 10 packets**.
+- Process uploaded data locally in the browser.
 
-- `samples/normal-traffic.csv`: 12 fictional packets.
-- `samples/high-volume-traffic.csv`: 72 packets, including 60 from one host.
-- `samples/mixed-soc-lab.csv`: 167 packets with high volume, ICMP, DNS, and many destinations.
+### Phase 2 — Network Traffic Dashboard
 
-The demo buttons generate equivalent samples in browser memory. All addresses are private lab ranges.
+- Total imported packet count.
+- Unique source hosts, destination hosts, and overall hosts.
+- Sum of valid captured packet lengths.
+- Protocol distribution and top source/destination rankings.
+- Descriptive counts based on **CSV rows**, not reconstructed network sessions.
 
-## Scope and limitations
+### Phase 3 — Explainable Security Triage
 
-**Phase 1 only:** no detection alerts, threshold settings, packet statistics dashboard, or filtering yet. CSV exports contain less detail than PCAP, encrypted traffic reduces visibility, NAT can affect attribution, and protocol labels depend on Wireshark. A CSV cannot prove compromise or replace Wireshark, IDS, SIEM, or professional monitoring. The app does not inspect payloads or perform malware analysis.
+The application evaluates imported packet records using transparent, rule-based heuristics:
 
-## Educational use
+| Detection | Observation |
+|---|---|
+| **High traffic volume** | High packet counts associated with one source |
+| **ICMP burst** | Elevated ICMP packet counts |
+| **DNS burst** | Elevated DNS activity |
+| **Destination sweep** | One source communicating with numerous destination labels |
+| **Port sweep** | Multiple explicitly identified destination ports in packet information |
 
-Only analyse authorised network traffic. **An anomaly is a starting point for investigation, not proof of compromise.**
+Each alert includes the observed pattern and supporting evidence to guide further investigation. **Thresholds apply to the entire imported CSV**, not to measured time-window rates. The tool does not infer malicious intent or confirm an attack.
 
-## Planned next phases
+## 🧪 Demonstration Datasets
 
-Packet statistics; explainable high-volume detection (default >50 packets); configurable host-scanning, port-scanning where available, ICMP, DNS, and repeated-communication rules; dashboard filtering; expanded tests and accessibility review. Potential later work: PCAP/PCAPNG support, TCP flags, time windows, baselining, graphs, GeoIP, DNS-domain analysis, exportable SOC reports, and IDS-style rules. No external APIs are planned for Version 1.
+Use the application's sample buttons to load fictional packet records without supplying your own capture.
 
+| Dataset | Packets | Expected triage result |
+|---|---:|---|
+| **Normal traffic** | 12 | 0 alerts |
+| **High-volume traffic** | 72 | 1 medium-severity alert |
+| **Mixed SOC lab** | 167 | 4 alerts: 3 medium, 1 low |
 
-## Phase 2 — descriptive network traffic dashboard
+> **Note:** These fictional examples support repeatable learning and verification. They are not real-world threat baselines.
 
-Phase 2 retains the Phase 1 CSV parser and adds total packet count, unique source and destination hosts, all unique hosts, protocol distribution, top sources, and top destinations. Packet-length totals are displayed only when every imported row has a valid non-negative integer length. These are descriptive statistics, not threat detections.
+## 🚀 Getting Started
 
-**Run:** Open `index.html` in Chrome or Edge, click the three sample buttons, and inspect the Network traffic dashboard below the import summary. Open `tests/index.html` to run the expanded 19-test browser suite. Files remain local and no backend or dependencies are required.
+### Option A — GitHub Pages
 
-**Expected samples:** Normal: 12 packets, 3 unique sources, 1 unique destination. High-volume: 72 packets, top source `192.168.10.25` with 60 packets. Mixed SOC: 167 packets, TCP 83, DNS 49, ICMP 35.
+Open the **[live application](https://jr6793108.github.io/Cybersecurity/Network-Traffic-Triage-Tool/)** and select a fictional sample or import an authorized Wireshark CSV export.
 
-**Privacy and limitations:** CSV content is not transmitted or stored by application code. The page uses a restrictive CSP. A packet-list CSV is not a complete flow log; counts cannot establish attack intent. Phase 3 will add explainable detection rules.
+### Option B — Run Locally
 
+1. Download or clone the [Cybersecurity repository](https://github.com/jr6793108/Cybersecurity).
+2. Open `Network-Traffic-Triage-Tool/index.html` in a modern browser.
+3. Select a fictional sample or import an authorized CSV file.
+4. Review the import summary, dashboard, and triage alerts.
+5. Open `Network-Traffic-Triage-Tool/tests/index.html` to run the regression suite.
 
-## Phase 3 — explainable security triage (pre-production)
+The application is static and does not require a backend service or account.
 
-Phase 3 adds browser-local heuristics to the Phase 2 dashboard. **Alerts are investigative leads, not attack verdicts.** All thresholds apply to the entire imported CSV, not a defined time interval. CSV exports are incomplete evidence of network sessions.
+## ✅ Automated Testing
 
-Rules (per source): at least 50 packet rows (Medium), 20 ICMP rows (Medium), 30 DNS rows (Low), 10 distinct destination labels (Medium), or 10 distinct destination/port combinations **explicitly labeled** `Dst Port:`, `Destination Port:` or `dport=` in the Info column (Medium). The last rule is not a reliable scan detector without explicit port information; many standard Wireshark CSV exports omit destination port fields.
+**Latest user-verified result: 32 / 32 tests passed** on the GitHub Pages test runner (November 2026).
 
-### Verify before production
+The browser-based regression suite covers:
 
-1. Open `tests/index.html` locally and confirm **32 / 32** tests pass.
-2. Open `index.html`. Load Normal Sample: expect 12 rows and **0 alerts**.
-3. Load High-Volume Sample: expect 72 rows and high packet volume from `192.168.10.25`.
-4. Load Mixed SOC Lab: expect 167 rows and ICMP, DNS, and multiple-destination alerts; review explanations and recommendations.
-5. Upload your own authorised Wireshark CSV (10 MB maximum). Verify Phase 2 statistics and preview remain intact.
-6. Open browser DevTools → Network, reload once to capture local static asset loads, then clear the log and run samples and CSV analysis. Verify no outbound requests during analysis. The Content Security Policy sets `connect-src 'none'`; no analytics, external libraries, or remote endpoints are used.
-7. Test offline after assets have loaded, inspect Console for errors, and test narrow/mobile viewport and keyboard navigation.
-8. Keep this build in staging until the browser tests, privacy checks, and user acceptance are complete.
+- CSV structure, aliases, quoted and multiline values, malformed input, and UTF-8 BOM handling.
+- Demonstration sample packet counts.
+- Safe treatment of HTML-like payloads as inert text.
+- Dashboard totals, protocol grouping, host rankings, and missing-field behavior.
+- Detection rules, threshold boundaries, false-positive safeguards, and empty inputs.
 
-### Limitations
+**[▶ Open the live Phase 3 test runner](https://jr6793108.github.io/Cybersecurity/Network-Traffic-Triage-Tool/tests/index.html)**
 
-Heuristics are intentionally simple and may generate false positives or miss malicious traffic. No payload inspection, reputation checks, IP geolocation, live packet capture, or connection reconstruction is performed. The original CSV remains in browser memory and is not persisted. Use only authorised traffic.
+## 🗂️ Project Structure
+
+```text
+Network-Traffic-Triage-Tool/
+├── README.md
+├── index.html                 # Main application interface
+├── script.js                  # CSV parsing, statistics, detection logic
+├── styles.css                 # Dark-theme UI
+├── samples/                   # Fictional demonstration CSV files
+│   ├── normal-traffic.csv
+│   ├── high-volume-traffic.csv
+│   └── mixed-soc-lab.csv
+└── tests/
+    ├── index.html             # Browser test runner
+    └── test.js                # 32 regression tests
+```
+
+## 🔒 Privacy and Responsible Use
+
+- Packet-list CSV contents are processed **locally in the browser**; no account or backend upload is required.
+- The application uses a restrictive Content Security Policy (CSP) and treats CSV-supplied HTML-like content as data rather than executable markup.
+- Packet lists can contain sensitive addresses, hostnames, and metadata. Analyze only traffic from systems and networks you own or are authorized to monitor.
+- **An alert is not proof of malicious activity; the absence of alerts does not establish safety.**
+- This educational project is not a substitute for a production IDS, SIEM, or full packet-capture analysis platform.
+
+## 🧠 Skills Demonstrated
+
+`Network Security Analysis` · `Wireshark CSV Interpretation` · `SOC Triage` · `JavaScript` · `Defensive Input Validation` · `Traffic Statistics` · `Explainable Detection Rules` · `Browser Regression Testing` · `GitHub Pages` · `Technical Documentation`
+
+## 📚 Portfolio Context
+
+Part of the [Cybersecurity portfolio](https://github.com/jr6793108/Cybersecurity), alongside hands-on identity and access management (IAM) and SOC monitoring labs.
